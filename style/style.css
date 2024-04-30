@@ -1,42 +1,57 @@
-body {         
+body {
     /* Taille de l'arrière plans 100%*/
     height: 100vh;
-    /* Hauteur de votre élément */
-    background-image: linear-gradient(to bottom right,#9FE855,#6666FF);
+    /* Dégrader de couleur en arriere plan */
+    background-image: linear-gradient(to bottom right, #9FE855, #6666FF);
     /*Taille du fond et cover serre a tout couvrire */
     background-size: cover;
-        display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            /* Pour aligner les éléments verticalement */
 }
-.accueil-regle {
-    background-color: black;
-    color: white;
-    /*Ajuste la longueur*/
-   display: inline-block;
-   /*Pour lasser une marge entre chaque coté"*/
-   padding: 50px;
-   font-size: 18px;
-   
+
+.nav-bar {
+    /*Pouvoir choisir la disposition de notre bar nav */
+    justify-content: center;
+    display: flex;
+    align-items: flex-start;
+
 }
-.nav-bar li{
-    /*Pour aligner la nav bar*/
-    display: inline-block
-    /*Pour espacer entre <li>*/
-    
+nav ul {
+    /*Suprime les puces*/
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
 }
-nav{
-    display: inline-block;
-    background-color: black;
-    color: white;
-    margin: 50px;
-}
-.nav-bar li a {
+.nav-bar a {
     /*Suprime les soulignement*/
     text-decoration: none;
     color: white;
-    font-size: 25px;
-    padding: 10px;
-} 
+    background: black;
+    font-size: 2.78vh;
+    padding: 2vh;
+    height: 5vh;
+    line-height: 5vh;
+    padding: 0 2vm;
+    flex-direction: row;
+
+}
+.nav-bar a:hover{
+    background-color: aquamarine;
+}
+.accueil-regle {
+    display: flex;
+    flex-direction: column;
+    background-color: black;
+    color: white;
+    font-size: 18px;
+    text-align: center;
+
+}
+
+/* Ajoute une marge à gauche pour les puces de la liste */
+.accueil-regle ul {
+    margin-left: 20px;
+}
+
+/* Ajoute une marge à droite pour la barre de navigation */
+.nav-bar {
+    margin-right: 10px;
+}

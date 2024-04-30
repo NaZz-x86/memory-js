@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Se connecter</title>
+    <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="style/formStyle.css">
+</head>
+
+<body>
+    <nav class="nav-bar">
+        <ul>
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="inscription.html">S'inscrire</a></li>
+            <li><a href="seconnecter.html">Se connecter</a></li>
+            <li><a href="profil.html">Profil</a></li>
+            <li><a href="jouer.html">Jouer</a></li>
+        </ul>
+    </nav>
+    <form id="Validation">
+        <div id="form-inscription">
+            <ul>
+                <li>
+                    <label for="name2">Non d'utilisateur</label>
+                    <input type="text" id="name2" name="user_name" />
+                    <p id="erreur-name"></p>
+                </li>
+                <li>
+                    <label for="mail2e">Addresse mail</label>
+                    <input type="email" id="mail2" name="user_mail" />
+                    <p id="erreur-mail"></p>
+                </li>
+                <li>
+                    <label for="motDePass">Mot de passe</label>
+                    <input type="password" id="motDePasse" name="password" />
+                    <p id="erreur-motdepasse"></p>
+                </li>
+                <li>
+                    <label for="confMotDePasse">Confirmez le mot de passe</label>
+                    <input type="password" id="confMotDePasse" name="confMotDePasse" />
+                    <p id="pasLeMemeMotDePasse"></p>
+                </li>
+            </ul>
+            <button class="buttonForm" type="submit">inscription</button>
+            <button class="buttonForm" type="button" id="Annuler">Annuler</button>
+        </div>
+    <script type="module" src="/js/app.js"></script>
+</body>
+</html>
