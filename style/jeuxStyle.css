@@ -1,0 +1,49 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body {
+    height: 100vh;
+}
+
+.jeux {
+    width: 640px;
+    height: 640px;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 50px;
+    perspective: 100px;
+    
+}
+.carte-pair {
+    width: calc(25% - 10px);
+    height: calc(33.333% - 10px);
+    margin: 5px;
+    position: relative;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, .3);
+    transform: scale(1);
+    transform-style: preserve-3d;
+    transition: transform .5s;
+}
+/*Le flipe fait pivoter la carte de 180degrès */
+.carte-pair.flip {
+    transform: rotateY(180deg);
+}
+.face-visible,
+.face-cacher {
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    position: absolute;
+    border-radius: 5px;
+    background: #1C7CCC;
+    /*Retourne la face arrier*/
+    backface-visibility: hidden;
+}
+.face-visible{
+    /*On tourne la facevissible a 180degrés*/
+    transform: rotateY(180deg);
+}
