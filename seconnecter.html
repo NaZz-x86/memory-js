@@ -19,20 +19,25 @@
             <li><a href="jouer.html">Jouer</a></li>
         </ul>
     </nav>
-    <div class="form">
-        <ul>
-            <li>
-                <label for="name">Non d'utilisateur</label>
-                <input type="text" id="name" name="user_name"/>
-            </li>
-            <li>
-                <label for="mail">Addresse mail</label>
-                <input type="mail" id="mail" name="user_mail" />
-            </li>
-        </ul>
-        <button type="submit" value="Connection">Connection</button>
-    </div>
-    <script type="module" src="/js/app.js"></script>
+    <form id="connextion">
+        <div class="forme">
+            <ul>
+                <li>
+                    <label for="name">Non d'utilisateur</label>
+                    <input type="text" id="name" name="user_name"/>
+                    <p id="name-existe"></p>
+                </li>
+                <li>
+                    <label for="motDePass">Mot de passe</label>
+                    <input type="password" id="mdp" name="password" />
+                    <p id="mdp-existe"></p>
+                </li>
+            </ul>
+            <button class="buttonForm" type="submit" value="Connection">Connection</button>
+        </div>
+    </form>
+    <p id="message-succée"></p>
+    <script type="module" src="js/sata.js"></script>
 </body>
 
 </html>
