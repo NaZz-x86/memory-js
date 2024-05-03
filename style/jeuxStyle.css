@@ -59,3 +59,18 @@ body {
     font-family: Chalkduster, fantasy;
     height: 100%;
 }
+#conteneur{
+    display: flex;
+    align-items: flex-start;
+}
+#message-score{
+   
+    background-color: black;
+    color: crimson;
+    font-family: Brush Script MT, Brush Script Std, cursive;
+    border-radius: 50px;
+    font-size: 2.78vh;
+    padding: 2vh;
+    line-height: 5vh;
+}
+       

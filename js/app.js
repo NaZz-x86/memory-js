@@ -1,4 +1,4 @@
-//On récupére toute les carte
+//On récupére toute nos cartes
 const cartes = document.querySelectorAll(".memoir-cartes");
 //On ajoute des variable pour gerer l'état de basculement 
 let carteRetourné = false;
@@ -7,8 +7,7 @@ let deuxiemeCarteRetourn;
 let jeuxVerouiller = false;
 let nombreDeCoup = 0;
 let gagner = false;
-let tableauScore = new Array(3);
-tableauScore[1] = 0;
+let score = 0;
 let dateDuJour = new Date();
 let jour = dateDuJour.getDate();
 //+1 Parce qu'il sont indexé a parti de 0
@@ -37,7 +36,9 @@ function verifCarteRetourn(){
     if(premierCarteRetourn.dataset.stock === deuxiemeCarteRetourn.dataset.stock){
         desactiverCarte();
         nombreDeCoup++
-        tableauScore[1] = tableauScore[1]+2;
+        score = score+2;
+        const baliseScore = document.getElementById("message-score");
+        baliseScore.textContent = "score : " + score;
         //Verification que toute les cartes son retournée 
         let touteCarteTourner = false;
         cartes.forEach(carte => {
@@ -48,7 +49,6 @@ function verifCarteRetourn(){
         //Si toute les carte son bien retourné, il gagne
         if(touteCarteTourner) {
             gagner = true;
-            afficheScore();
         }
         return;
     }
@@ -58,7 +58,7 @@ function verifCarteRetourn(){
 function desactiverCarte(){
     premierCarteRetourn.removeEventListener("click", retourneCarte);
     deuxiemeCarteRetourn.removeEventListener("click", retourneCarte);
-    resetJeux();
+    resetDeuxCarte();
 }
 //Si elle ne sont pas identique retourne les carte au bout de 15s
 function detournecarte(){
@@ -66,12 +66,14 @@ function detournecarte(){
     setTimeout(()=>{
         premierCarteRetourn.classList.remove("flip");
         deuxiemeCarteRetourn.classList.remove("flip");
-        --tableauScore[1];
+        --score;
+        const baliseScore = document.getElementById("message-score");
+        baliseScore.textContent = "score : " + score;
         nombreDeCoup++
-        resetJeux();
+        resetDeuxCarte();
     }, 1200);
 }
-function resetJeux(){
+function resetDeuxCarte(){
     [carteRetourné,jeuxVerouiller]=[false,false];
     [premierCarteRetourn, deuxiemeCarteRetourn]=[null,null]
 }
@@ -90,28 +92,18 @@ document.addEventListener("keydown",function(event){
     //32 = barre d'espace
     if(event.keyCode === 32){
         //Reset du jeux
-        resetJeux();
+        resetDeuxCarte();
         //On mélange
         (function melange(){
     cartes.forEach(card => {
         let posissionAléa = Math.floor(Math.random()*16);
         card.style.order = posissionAléa;
     });
+    const baliseScore = document.getElementById("message-score");
+        baliseScore.textContent = "score : "+"0";
 })();   // On suprime la classe flip de toute nos cartes
         cartes.forEach(carte => carte.classList.remove("flip"));
         //On remet l'écouteur d'écoute sur le click
         cartes.forEach(carte => carte.addEventListener("click", retourneCarte));
     }
 })
-function afficheScore(){
-            tableauScore[0] = localStorage.getItem("user_name");
-            console.log(tableauScore[0])
-            tableauScore[2] = dateDuJour;
-
-            const ajoutNom = document.getElementById("ajout-nom");
-            const ajoutScore = document.getElementById("ajout-score");
-            const ajoutDate = document.getElementById("ajout-date");
-            ajoutNom.textContent = tableauScore[0];
-            ajoutScore.textContent = tableauScore[1];
-            ajoutDate.textContent = tableauScore[2];
-}
